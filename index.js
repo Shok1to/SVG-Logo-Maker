@@ -1,6 +1,8 @@
 //Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const {Circle, Triangle, Square} = require('./shapes.js')
+const SVG =('./lib/svg.js')
 
 // Create an array of questions for user input
 const questions =[
@@ -33,7 +35,7 @@ function init{
     .then(function(answers){
         console.log(answers)
 
-        fs.writeFileSync('./logo.svg',generateMarkdown({...answers}))
+        fs.writeFileSync('./logo.svg',shape({...answers}))
     })
 }
 
