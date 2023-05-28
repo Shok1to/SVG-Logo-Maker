@@ -1,7 +1,7 @@
 //Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const {Circle, Triangle, Square} = require('./shapes.js')
+const {Circle, Triangle, Square} = require('./lib/shapes.js');
 const SVG =('./lib/svg.js')
 
 // Create an array of questions for user input
@@ -25,17 +25,17 @@ const questions =[
     {
         type:'input',
         message:'Please choose the logo color, enter a color keyword or a hexadecimal number',
-        name: logoColor,
+        name: 'logoColor',
     }
 ];
 
 //Create a function to initialize app
-function init{
+function init(){
     inquirer.prompt(questions)
     .then(function(answers){
         console.log(answers)
 
-        fs.writeFileSync('./logo.svg',shape({...answers}))
+        fs.writeFileSync('./svg.js',shapes({...answers}))
     })
 }
 
