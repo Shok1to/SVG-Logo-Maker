@@ -34,10 +34,10 @@ function init(){
     inquirer.prompt(questions)
     .then(function(answers){
         let myCircle = new Circle();
-        myCircle.render(answers.logoColor)
+        
         console.log(answers)
 
-        fs.writeFileSync('./svg.js',shapes({...answers}))
+        fs.writeFileSync('logo.svg',myCircle.render(answers.logoColor))
     })
 }
 
