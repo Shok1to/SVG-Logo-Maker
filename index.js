@@ -17,7 +17,7 @@ const questions =[
         name:'textColor',
     },
     {
-        type:'input',
+        type:'list',
         message:'Please choose a shape of your logo from: circle, triangle, and square',
         name:'logoShape',
         choices: ['circle','triangle','square'],
@@ -34,6 +34,7 @@ function init(){
     inquirer.prompt(questions)
     .then(function(answers){
         let myCircle = new Circle();
+       
         
         console.log(answers)
 
