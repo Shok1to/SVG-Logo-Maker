@@ -2,7 +2,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const {Circle, Triangle, Square} = require('./lib/shapes.js');
-const SVG =('./lib/svg.js')
+const SVG = require('./lib/svg.js');
 
 // Create an array of questions for user input
 const questions =[
@@ -34,7 +34,7 @@ function init(){
     inquirer.prompt(questions)
     .then(function(answers){
         let myCircle = new Circle();
-       
+        myCircle.setColor(answers.logoColor);
         
         console.log(answers)
 
