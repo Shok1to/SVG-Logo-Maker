@@ -33,12 +33,29 @@ const questions =[
 function init(){
     inquirer.prompt(questions)
     .then(function(answers){
-        let myCircle = new Circle();
-        myCircle.setColor(answers.logoColor);
+        //use this for the final render
+        var svg = new SVG();
+        var shape; //we are going to change this shape variable based on user response
+        if(answers.logoShape = "circle"){
+            shape = new Circle()
+            shape.setColor(answers.logoColor)
+        }
+        if(answers.logoShape = "triangle"){
+            shape = new Triangle()
+            shape.setColor(answers.logoColor)
+        }
+        if(answers.logoShape = "square"){
+            shape = new Square()
+            shape.setColor(answers.logoColor)
+        }
+        //do the same for 
+        //if answers.logoShape = triangle or square
+
+        //set the values of our svg variable to use setTextElement and setShapesElement
         
         console.log(answers)
 
-        fs.writeFileSync('logo.svg',myCircle.render(answers.logoColor))
+        fs.writeFileSync('logo.svg',svg.render())
     })
 }
 
