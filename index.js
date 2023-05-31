@@ -48,8 +48,8 @@ function init(){
             shape = new Square()
             shape.setColor(answers.logoColor)
         }
-        //do the same for 
-        //if answers.logoShape = triangle or square
+        svg.setTextElement(logoText);
+        shape.setShapesElement(logoShape);
 
         //set the values of our svg variable to use setTextElement and setShapesElement
         
