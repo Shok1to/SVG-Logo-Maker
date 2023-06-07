@@ -17,10 +17,10 @@ const questions =[
         name:'textColor',
     },
     {
-        type:'list',
-        message:'Please choose a shape of your logo from: circle, triangle, and square',
-        name:'logoShape',
-        choices: ['circle','triangle','square'],
+        type: 'list',
+        message: "Would you like your svg to be a circle, triangle or square?",
+        name: 'logoShape',
+        choices: ['circle', 'triangle', 'square']
     },
     {
         type:'input',
@@ -33,27 +33,32 @@ const questions =[
 function init(){
     inquirer.prompt(questions)
     .then(function(answers){
+        console.log(answers)
         //use this for the final render
         var svg = new SVG();
         var shape; //we are going to change this shape variable based on user response
-        if(answers.logoShape = "circle"){
+        if(answers.logoShape === "circle"){
+            console.log(answers.logoShape)
             shape = new Circle()
-            shape.setColor(answers.logoColor)
+            // shape.setColor(answers.logoColor)
         }
-        if(answers.logoShape = "triangle"){
+        if(answers.logoShape === "triangle"){
+            console.log(answers.logoShape)
             shape = new Triangle()
-            shape.setColor(answers.logoColor)
+            // shape.setColor(answers.logoColor)
         }
-        if(answers.logoShape = "square"){
+        if(answers.logoShape === "square"){
+            console.log(answers.logoShape)
             shape = new Square()
-            shape.setColor(answers.logoColor)
+            // shape.setColor(answers.logoColor)
         }
-        svg.setTextElement(logoText);
-        shape.setShapesElement(logoShape);
+        shape.setlogoColor(answers.logoColor);
+        svg.setTextElement(answers.text, answers.textColor);
+        svg.setShapesElement(shape);
 
         //set the values of our svg variable to use setTextElement and setShapesElement
         
-        console.log(answers)
+        
 
         fs.writeFileSync('logo.svg',svg.render())
     })
